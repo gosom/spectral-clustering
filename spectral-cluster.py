@@ -131,7 +131,8 @@ def main():
     # compute eigenvalues and eigenvectors
     eigen_val, eigen_vec = np.linalg.eig(norm_lapl)
     # kmeans
-    labels, _, _ = Pycluster.kcluster(eigen_vec[:, :args.kappa], args.kappa,
+    labels, _, _ = Pycluster.kcluster(eigen_vec[:, :args.kappa+1],
+                                      args.kappa,
                                       dist='e', npass=100, initialid=None)
     # assign colors
     colors = [COLORS[i] for i in labels]
